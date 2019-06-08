@@ -15,9 +15,9 @@ import laboCrudJavaFx.repository.Repository;
  * @author sebbo
  *
  */
-public class PoneyRepository implements Repository<Poney> {
+public class FlowerRepository implements Repository<Flower> {
 
-	public PoneyRepository() {
+	public FlwoerRepository() {
 		
 		Connection conn = null;
 		try {
@@ -34,25 +34,25 @@ public class PoneyRepository implements Repository<Poney> {
 	}
 
 	@Override
-	public void addOrUpdate(Poney item) {
+	public void addOrUpdate(Flower item) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public List<Poney> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Poney get(int id) {
+	public List<Flower> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove(Poney item) {
+	public Flower get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(Flower item) {
 		// TODO Auto-generated method stub
 
 	}

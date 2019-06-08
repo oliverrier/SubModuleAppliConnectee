@@ -24,7 +24,7 @@ public class LaboCrudJavaFx extends Application {
 
 	private Stage primaryStage;
 
-	public Repository<Poney> PoneyRepository = new PoneyRepository();
+	public Repository<Flower> PoneyRepository = new PoneyRepository();
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -33,7 +33,7 @@ public class LaboCrudJavaFx extends Application {
 
 		changePage("view/home/HomeView.fxml");
 
-		primaryStage.setTitle("LaboCrudJavaFx");
+		primaryStage.setTitle("Plante connectée");
 		primaryStage.show();
 	}
 
