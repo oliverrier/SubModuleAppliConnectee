@@ -32,6 +32,7 @@ public class FlowerSpecies {
 	public FlowerSpecies() {
 		this.id = 0;
 		this.name = "rosacées";
+		this.description = "Ceci est une fleur";
 		this.temperature = 18;
 		this.luminosity = 30;
 		this.humidity = true;
@@ -40,9 +41,10 @@ public class FlowerSpecies {
 		this.idCategory = 1;
 	}
 	
-	public FlowerSpecies(int id, String name, int temperature, int luminosity, boolean humidity, String blossomingPeriodStart, String blossomingPeriodEnd, int idCategory) {
+	public FlowerSpecies(int id, String name, String description, int temperature, int luminosity, boolean humidity, String blossomingPeriodStart, String blossomingPeriodEnd, int idCategory) {
 		this.id = id;
 		this.name = name;
+		this.description = description;
 		this.temperature = temperature;
 		this.luminosity = luminosity;
 		this.humidity = humidity;
