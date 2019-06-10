@@ -26,7 +26,7 @@ public class ConnectedFlowerRepository implements Repository<ConnectedFlower> {
 			// create a connection to the database
 			conn = DriverManager.getConnection(url);
 
-			System.out.println("Connection to SQLite has been established.");
+			System.out.println("Connection to MySQL has been established.");
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
