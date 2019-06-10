@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
@@ -8,9 +11,13 @@ import java.util.List;
 import AppliPlanteConnectee.model.ConnectedFlower;
 import AppliPlanteConnectee.repository.Repository;
 
-public class FlowerSpeciesRepository implements Repository<ConnectedFlower>{
-	
-public FlowerSpeciesRepository() {
+/**
+ * @author sebbo
+ *
+ */
+public class ConnectedFlowerRepository implements Repository<ConnectedFlower> {
+
+	public ConnectedFlowerRepository() {
 		
 		Connection conn = null;
 		try {
@@ -19,7 +26,7 @@ public FlowerSpeciesRepository() {
 			// create a connection to the database
 			conn = DriverManager.getConnection(url);
 
-			System.out.println("Connection to MySQL has been established.");
+			System.out.println("Connection to SQLite has been established.");
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

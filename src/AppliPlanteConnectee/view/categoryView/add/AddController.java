@@ -1,11 +1,11 @@
 /**
  * 
  */
-package AppliPlanteConnectee.view.add;
+package AppliPlanteConnectee.view.categoryView.add;
 
 import AppliPlanteConnectee.AppliPlanteConnectee;
 
-import AppliPlanteConnectee.model.Flower;
+import AppliPlanteConnectee.model.ConnectedFlower;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -19,7 +19,7 @@ public class AddController {
 	private TextField FieldName;
 
 	public void add() {
-		AppliPlanteConnectee.instance.FlowerRepository.addOrUpdate(new Flower(FieldName.getText()));
+		AppliPlanteConnectee.instance.connectedFlowerRepository.addOrUpdate(new ConnectedFlower(FieldName.getText()));
 	}
 
 	public void back() {

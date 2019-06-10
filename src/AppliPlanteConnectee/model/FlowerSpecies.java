@@ -13,36 +13,42 @@ public class FlowerSpecies {
 
 	private int id;
 
-	private String flowerSpeciesName;
+	private String name;
+	
+	private String description;
 
-	private int idealTemperature;
+	private int temperature;
 	
-	private int idealLuminosity;
+	private int luminosity;
 	
-	private boolean idealHumidity;
+	private boolean humidity;
 	
-	private String startBlossoming;
+	private String blossomingPeriodStart;
 
-	private String endBlossoming;
+	private String blossomingPeriodEnd;
+	
+	private int idCategory;
 	
 	public FlowerSpecies() {
 		this.id = 0;
-		this.flowerSpeciesName = "rosacées";
-		this.idealTemperature = 18;
-		this.idealLuminosity = 30;
-		this.idealHumidity = true;
-		this.startBlossoming = "Janvier";
-		this.endBlossoming = "Janvier";
+		this.name = "rosacées";
+		this.temperature = 18;
+		this.luminosity = 30;
+		this.humidity = true;
+		this.blossomingPeriodStart = "Janvier";
+		this.blossomingPeriodEnd = "Janvier";
+		this.idCategory = 1;
 	}
 	
-	public FlowerSpecies(int id, String flowerSpeciesName, int idealTemperature, int idealLuminosity, boolean idealHumidity, String startBlossoming, String endBlossoming) {
+	public FlowerSpecies(int id, String name, int temperature, int luminosity, boolean humidity, String blossomingPeriodStart, String blossomingPeriodEnd, int idCategory) {
 		this.id = id;
-		this.flowerSpeciesName = flowerSpeciesName;
-		this.idealTemperature = idealTemperature;
-		this.idealLuminosity = idealLuminosity;
-		this.idealHumidity = idealHumidity;
-		this.startBlossoming = startBlossoming;
-		this.endBlossoming = endBlossoming;
+		this.name = name;
+		this.temperature = temperature;
+		this.luminosity = luminosity;
+		this.humidity = humidity;
+		this.blossomingPeriodStart = blossomingPeriodStart;
+		this.blossomingPeriodEnd = blossomingPeriodEnd;
+		this.idCategory = idCategory;
 	}
 
 	/**
@@ -60,91 +66,116 @@ public class FlowerSpecies {
 	}
 
 	/**
-	 * @return the flowerSpeciesName
+	 * @return the name
 	 */
-	public String getFlowerSpeciesName() {
-		return flowerSpeciesName;
+	public String getName() {
+		return name;
 	}
 
 	/**
-	 * @param flowerSpeciesName the flowerSpeciesName to set
+	 * @param name the name to set
 	 */
-	public void setFlowerSpeciesName(String flowerSpeciesName) {
-		this.flowerSpeciesName = flowerSpeciesName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	/**
-	 * @return the idealTemperature
+	 * @return the description
 	 */
-	public int getIdealTemperature() {
-		return idealTemperature;
+	public String getDescription() {
+		return description;
 	}
 
 	/**
-	 * @param idealTemperature the idealTemperature to set
+	 * @param description the description to set
 	 */
-	public void setIdealTemperature(int idealTemperature) {
-		this.idealTemperature = idealTemperature;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	/**
-	 * @return the idealLuminosity
+	 * @return the temperature
 	 */
-	public int getIdealLuminosity() {
-		return idealLuminosity;
+	public int getTemperature() {
+		return temperature;
 	}
 
 	/**
-	 * @param idealLuminosity the idealLuminosity to set
+	 * @param temperature the temperature to set
 	 */
-	public void setIdealLuminosity(int idealLuminosity) {
-		this.idealLuminosity = idealLuminosity;
+	public void setTemperature(int temperature) {
+		this.temperature = temperature;
 	}
 
 	/**
-	 * @return the idealHumidity
+	 * @return the luminosity
 	 */
-	public boolean isIdealHumidity() {
-		return idealHumidity;
+	public int getLuminosity() {
+		return luminosity;
 	}
 
 	/**
-	 * @param idealHumidity the idealHumidity to set
+	 * @param luminosity the luminosity to set
 	 */
-	public void setIdealHumidity(boolean idealHumidity) {
-		this.idealHumidity = idealHumidity;
+	public void setLuminosity(int luminosity) {
+		this.luminosity = luminosity;
 	}
 
 	/**
-	 * @return the startBlossoming
+	 * @return the humidity
 	 */
-	public String getStartBlossoming() {
-		return startBlossoming;
+	public boolean isHumidity() {
+		return humidity;
 	}
 
 	/**
-	 * @param startBlossoming the startBlossoming to set
+	 * @param humidity the humidity to set
 	 */
-	public void setStartBlossoming(String startBlossoming) {
-		this.startBlossoming = startBlossoming;
+	public void setHumidity(boolean humidity) {
+		this.humidity = humidity;
 	}
 
 	/**
-	 * @return the endBlossoming
+	 * @return the blossomingPeriodStart
 	 */
-	public String getEndBlossoming() {
-		return endBlossoming;
+	public String getBlossomingPeriodStart() {
+		return blossomingPeriodStart;
 	}
 
 	/**
-	 * @param endBlossoming the endBlossoming to set
+	 * @param blossomingPeriodStart the blossomingPeriodStart to set
 	 */
-	public void setEndBlossoming(String endBlossoming) {
-		this.endBlossoming = endBlossoming;
+	public void setBlossomingPeriodStart(String blossomingPeriodStart) {
+		this.blossomingPeriodStart = blossomingPeriodStart;
 	}
-	
 
-	
-	
+	/**
+	 * @return the blossomingPeriodEnd
+	 */
+	public String getBlossomingPeriodEnd() {
+		return blossomingPeriodEnd;
+	}
+
+	/**
+	 * @param blossomingPeriodEnd the blossomingPeriodEnd to set
+	 */
+	public void setBlossomingPeriodEnd(String blossomingPeriodEnd) {
+		this.blossomingPeriodEnd = blossomingPeriodEnd;
+	}
+
+	/**
+	 * @return the idCategory
+	 */
+	public int getIdCategory() {
+		return idCategory;
+	}
+
+	/**
+	 * @param idCategory the idCategory to set
+	 */
+	public void setIdCategory(int idCategory) {
+		this.idCategory = idCategory;
+	}
+
 	
 }

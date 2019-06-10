@@ -8,10 +8,10 @@ public class HomeController {
 	}
 
 	public void GoToList() {
-		AppliPlanteConnectee.instance.changePage("view/list/ListView.fxml");
+		AppliPlanteConnectee.instance.changePage("view/connectedFlowerView/list/ListView.fxml");
 	}
 
 	public void GoToAdd() {
-		AppliPlanteConnectee.instance.changePage("view/add/AddView.fxml");
+		AppliPlanteConnectee.instance.changePage("view/connectedFlowerView/add/AddView.fxml");
 	}
 }

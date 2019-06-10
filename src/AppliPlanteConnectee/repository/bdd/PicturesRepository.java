@@ -1,6 +1,3 @@
-/**
- * 
- */
 package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
@@ -8,16 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
-import AppliPlanteConnectee.model.Flower;
+import AppliPlanteConnectee.model.ConnectedFlower;
+import AppliPlanteConnectee.model.Pictures;
 import AppliPlanteConnectee.repository.Repository;
 
-/**
- * @author sebbo
- *
- */
-public class FlowerRepository implements Repository<Flower> {
-
-	public FlowerRepository() {
+public class PicturesRepository implements Repository<Pictures>{
+	
+public PicturesRepository() {
 		
 		Connection conn = null;
 		try {
@@ -26,7 +20,7 @@ public class FlowerRepository implements Repository<Flower> {
 			// create a connection to the database
 			conn = DriverManager.getConnection(url);
 
-			System.out.println("Connection to SQLite has been established.");
+			System.out.println("Connection to MySQL has been established.");
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -34,25 +28,25 @@ public class FlowerRepository implements Repository<Flower> {
 	}
 
 	@Override
-	public void addOrUpdate(Flower item) {
+	public void addOrUpdate(Pictures item) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public List<Flower> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Flower get(int id) {
+	public List<Pictures> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove(Flower item) {
+	public Pictures get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(Pictures item) {
 		// TODO Auto-generated method stub
 
 	}

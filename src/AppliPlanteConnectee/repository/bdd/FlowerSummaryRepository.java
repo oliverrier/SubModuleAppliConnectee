@@ -5,12 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
-import AppliPlanteConnectee.model.ConnectedFlower;
 import AppliPlanteConnectee.repository.Repository;
 
-public class FlowerSpeciesRepository implements Repository<ConnectedFlower>{
+public class FlowerSummaryRepository implements Repository<FlowerSummaryRepository>{
 	
-public FlowerSpeciesRepository() {
+public FlowerSummaryRepository() {
 		
 		Connection conn = null;
 		try {
@@ -27,27 +26,26 @@ public FlowerSpeciesRepository() {
 	}
 
 	@Override
-	public void addOrUpdate(ConnectedFlower item) {
+	public void addOrUpdate(FlowerSummaryRepository item) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public List<ConnectedFlower> getAll() {
+	public List<FlowerSummaryRepository> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ConnectedFlower get(int id) {
+	public FlowerSummaryRepository get(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove(ConnectedFlower item) {
+	public void remove(FlowerSummaryRepository item) {
 		// TODO Auto-generated method stub
 
 	}
-
 }

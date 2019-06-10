@@ -1,16 +1,17 @@
 package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
-import AppliPlanteConnectee.model.ConnectedFlower;
+import AppliPlanteConnectee.model.Category;
 import AppliPlanteConnectee.repository.Repository;
 
-public class FlowerSpeciesRepository implements Repository<ConnectedFlower>{
+public class CategoryRepository implements Repository<Category> {
 	
-public FlowerSpeciesRepository() {
+public CategoryRepository() {
 		
 		Connection conn = null;
 		try {
@@ -27,25 +28,25 @@ public FlowerSpeciesRepository() {
 	}
 
 	@Override
-	public void addOrUpdate(ConnectedFlower item) {
+	public void addOrUpdate(Category item) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public List<ConnectedFlower> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ConnectedFlower get(int id) {
+	public List<Category> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove(ConnectedFlower item) {
+	public Category get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(Category item) {
 		// TODO Auto-generated method stub
 
 	}

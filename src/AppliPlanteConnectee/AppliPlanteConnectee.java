@@ -5,16 +5,16 @@ package AppliPlanteConnectee;
 
 import java.io.IOException;
 
-import AppliPlanteConnectee.repository.bdd.FlowerRepository;
-import AppliPlanteConnectee.repository.offline.FlowerOfflineRepository;
+import AppliPlanteConnectee.repository.bdd.ConnectedFlowerRepository;
+import AppliPlanteConnectee.repository.offline.ConnectedFlowerOfflineRepository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import AppliPlanteConnectee.model.Flower;
+import AppliPlanteConnectee.model.ConnectedFlower;
 import AppliPlanteConnectee.repository.Repository;
-import AppliPlanteConnectee.repository.bdd.FlowerRepository;
+import AppliPlanteConnectee.repository.bdd.ConnectedFlowerRepository;
 
 /**
  * @author sebbo
@@ -26,7 +26,7 @@ public class AppliPlanteConnectee extends Application {
 
 	private Stage primaryStage;
 
-	public Repository<Flower> FlowerRepository = new FlowerOfflineRepository();
+	public Repository<ConnectedFlower> connectedFlowerRepository = new ConnectedFlowerOfflineRepository();
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
