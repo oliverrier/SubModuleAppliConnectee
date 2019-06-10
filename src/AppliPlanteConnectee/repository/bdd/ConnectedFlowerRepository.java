@@ -5,9 +5,12 @@ package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
+import AppliPlanteConnectee.model.Category;
 import AppliPlanteConnectee.model.ConnectedFlower;
 import AppliPlanteConnectee.repository.Repository;
 
@@ -17,9 +20,12 @@ import AppliPlanteConnectee.repository.Repository;
  */
 public class ConnectedFlowerRepository implements Repository<ConnectedFlower> {
 
+	Connection conn = null;
+	List<ConnectedFlower> connectedFlowers;
+	
 	public ConnectedFlowerRepository() {
 		
-		Connection conn = null;
+
 		try {
 			// db parameters
 			String url = "jdbc:sqlite:D:\\Workspace\\AppliPlanteConnectee/qzdqzd.db";
@@ -35,25 +41,116 @@ public class ConnectedFlowerRepository implements Repository<ConnectedFlower> {
 
 	@Override
 	public void addOrUpdate(ConnectedFlower item) {
-		// TODO Auto-generated method stub
+		Statement statement = null;
 
-	}
+    	
+		try {
+            statement = conn.createStatement();
+            int id = item.getId();
+            String name = item.getName();
+            int idFlowerSpecies = item.getIdFlowerSpecies();
+            
+            
+            String add = "INSERT INTO ConectedFlower(id, name, idFlowerSpecies)" 
+            + "VALUES ( ?, ?, ?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(add);
+            preparedStatement.setInt(1, id);
+            preparedStatement.setString(2, name);
+            preparedStatement.setInt(3, idFlowerSpecies);
+            
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }    
+        }
+    }
+
 
 	@Override
 	public List<ConnectedFlower> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Statement statement = null;
+		try {
+            statement = conn.createStatement();
+            
+            
+            String getAll = "SELECT * FROM ConnectedFlower;" ;
+            PreparedStatement preparedStatement = conn.prepareStatement(getAll);
+            
+            preparedStatement.executeUpdate();
+            for (ConnectedFlower connectedFlower : preparedStatement) {
+            	connectedFlowers.add(connectedFlower);
+			}
+//            rs = statement.executeQuery(add);
+//            while (rs.next()) {
+//            System.out.println(rs.getString(""));    
+//            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }    
+        }
 	}
 
 	@Override
 	public ConnectedFlower get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Statement statement = null;
+		try {
+            statement = conn.createStatement();
+            
+            
+            String get = "SELECT * FROM ConnectedFlower WHERE id = " + id  +";" ;
+            PreparedStatement preparedStatement = conn.prepareStatement(get);
+            
+            preparedStatement.executeUpdate();
+            connectedFlowers.add(item);
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }    
+        }
 	}
 
 	@Override
 	public void remove(ConnectedFlower item) {
-		// TODO Auto-generated method stub
+		Statement statement = null;
+		try {
+            statement = conn.createStatement();
+            
+            
+            String remove = "DELETE FROM ConnectedFlower WHERE id = " + item.getId()  +";" ;
+            PreparedStatement preparedStatement = conn.prepareStatement(remove);
+            
+            preparedStatement.executeUpdate();
+            connectedFlowers.remove(item);
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }    
+        }
 
 	}
 

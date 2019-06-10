@@ -92,32 +92,32 @@ public class ListController {
 		addBlossomingPeriodEnd.setPromptText("Fin de la période de floraison");
 		addBlossomingPeriodEnd.setMaxWidth(columnBlossomingPeriodEnd.getPrefWidth());
 		
-//		final Button addButton = new Button("Add");
-//		
-//		addButton.setOnAction(new EventHandler<ActionEvent>() {
-//		    @Override 
-//		    public void handle(ActionEvent e) {
-//		        table.addOrUpdate(new FlowerSpecies(
-//		        	Integer.parseInt(addId.getText()),
-//		            addName.getText(),
-//		            addDescription.getText(),
-//		            Integer.parseInt(addTemperature.getText()),
-//		            Integer.parseInt(addLuminosity.getText()),
-//		            Boolean.parseBoolean(addHumidity.getText()),
-//		            addBlossomingPeriodStart.getText(),
-//		            addBlossomingPeriodEnd.getText(),
-//		            1
-//		        ));
-//		        addId.clear();
-//		        addName.clear();
-//		        addDescription.clear();
-//		        addTemperature.clear();
-//		        addLuminosity.clear();
-//		        addHumidity.clear();
-//		        addBlossomingPeriodStart.clear();
-//		        addBlossomingPeriodEnd.clear();
-//		    }
-//		});
+		final Button addButton = new Button("Add");
+		
+		addButton.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    public void handle(ActionEvent e) {
+		        table.getItems().add(new FlowerSpecies(
+		        	Integer.parseInt(addId.getText()),
+		            addName.getText(),
+		            addDescription.getText(),
+		            Integer.parseInt(addTemperature.getText()),
+		            Integer.parseInt(addLuminosity.getText()),
+		            Boolean.parseBoolean(addHumidity.getText()),
+		            addBlossomingPeriodStart.getText(),
+		            addBlossomingPeriodEnd.getText(),
+		            1
+		        ));
+		        addId.clear();
+		        addName.clear();
+		        addDescription.clear();
+		        addTemperature.clear();
+		        addLuminosity.clear();
+		        addHumidity.clear();
+		        addBlossomingPeriodStart.clear();
+		        addBlossomingPeriodEnd.clear();
+		    }
+		});
 		
 		
 

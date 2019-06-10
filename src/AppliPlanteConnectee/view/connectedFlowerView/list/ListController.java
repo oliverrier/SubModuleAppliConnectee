@@ -28,6 +28,12 @@ public class ListController {
 
 		table.setItems(FXCollections.observableArrayList(AppliPlanteConnectee.instance.connectedFlowerRepository.getAll()));
 
+		
+	}
+	
+	public void flowerSummary() {
+		ConnectedFlower selectedFlower = table.getSelectionModel().getSelectedItem();
+		AppliPlanteConnectee.instance.changePage("view/flowerSummaryView/list/ListView.fxml");
 	}
 
 	public void back() {

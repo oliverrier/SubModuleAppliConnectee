@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import AppliPlanteConnectee.model.Category;
@@ -14,6 +15,8 @@ import AppliPlanteConnectee.repository.Repository;
 public class CategoryRepository implements Repository<Category> {
 	
 	Connection conn = null;
+	private List<Category> categories = new ArrayList<>();
+
 	
 public CategoryRepository() {
 		
@@ -33,26 +36,49 @@ public CategoryRepository() {
 
 	@Override
 	public void addOrUpdate(Category item) {
-		Statement st;
+		Statement statement = null;
 		try {
-            st = conn.createStatement();
+            statement = conn.createStatement();
             int id = item.getId();
+            String categoryFlower = item.getCategoryFlower();
             
             
-            String add = "INSERT INTO plant(plant_id, plant_nom, plant_catégorie, plant_description, plant_optimal_humidity, plant_optimal_temp, plant_optimal_lum, plant_periode_floraison)" 
-            + "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
+            String add = "INSERT INTO Category(id, categoryFlower)" 
+            + "VALUES ( ?, ?)";
             PreparedStatement preparedStatement = conn.prepareStatement(add);
-            preparedStatement.setInt(1, 31);
-            preparedStatement.setString(2, nom);
-            preparedStatement.setString(3, catégorie);
-            preparedStatement.setString(4, description);
-            preparedStatement.setString(5, humidityopti);
-            preparedStatement.setString(6, tempopti);
-            preparedStatement.setString(7, lumopti);
-            preparedStatement.setString(8, periodeflo);
+            preparedStatement.setInt(1, id);
+            preparedStatement.setString(2, categoryFlower);
             
             preparedStatement.executeUpdate();
-//            rs = st.executeQuery(add);
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }    
+        }
+    }
+
+
+	@Override
+	public List<Category> getAll() {
+		Statement statement = null;
+		try {
+            statement = conn.createStatement();
+            
+            
+            String getAll = "SELECT * FROM Category;" ;
+            PreparedStatement preparedStatement = conn.prepareStatement(getAll);
+            
+            preparedStatement.executeUpdate();
+            for (Category category : preparedStatement) {
+            	categories.add(category);
+			}
+//            rs = statement.executeQuery(add);
 //            while (rs.next()) {
 //            System.out.println(rs.getString(""));    
 //            }
@@ -61,31 +87,61 @@ public CategoryRepository() {
             e.printStackTrace();
         } finally {
             try {
-//                conn.close();
-                st.close();
+                statement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }    
         }
-    }
-
-	}
-
-	@Override
-	public List<Category> getAll() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
 	public Category get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Statement statement = null;
+		try {
+            statement = conn.createStatement();
+            
+            
+            String get = "SELECT * FROM Category WHERE id = " + id  +";" ;
+            PreparedStatement preparedStatement = conn.prepareStatement(get);
+            
+            preparedStatement.executeUpdate();
+            categories.add(item);
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }    
+        }
 	}
 
 	@Override
 	public void remove(Category item) {
-		// TODO Auto-generated method stub
+		Statement statement = null;
+		try {
+            statement = conn.createStatement();
+            
+            
+            String remove = "DELETE FROM Category WHERE id = " + item.getId()  +";" ;
+            PreparedStatement preparedStatement = conn.prepareStatement(remove);
+            
+            preparedStatement.executeUpdate();
+            categories.remove(item);
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }    
+        }
 
 	}
 
