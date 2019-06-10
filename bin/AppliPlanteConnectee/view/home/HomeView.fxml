@@ -4,14 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppliPlanteConnectee.view.home.HomeController">
     <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-              <Label layoutX="193.0" layoutY="14.0" text="Super CRUD de la mort" />
-            <Button layoutX="229.0" layoutY="187.0" mnemonicParsing="false" onAction="#GoToList" text="Liste" />
-            <Button layoutX="297.0" layoutY="187.0" mnemonicParsing="false" onAction="#GoToAdd" text="Add" />
+              <Label layoutX="71.0" layoutY="47.0" text="Bienvenue sur l'application de Connected Flowers">
+               <font>
+                  <Font size="21.0" />
+               </font></Label>
+            <Button layoutX="50.0" layoutY="175.0" mnemonicParsing="false" onAction="#goToList" text="Voir vos plantes" />
+            <Button layoutX="50.0" layoutY="262.0" mnemonicParsing="false" onAction="#goToFlowerSpeciesList" text="Ajouter une plante" />
          </children>
       </Pane>
     </children>

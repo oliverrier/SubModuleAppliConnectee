@@ -1,6 +1,6 @@
 package AppliPlanteConnectee.view.flowerSpeciesView.list;
 
-import AppliPlanteConnectee.model.ConnectedFlower;
+import AppliPlanteConnectee.model.FlowerSpecies;
 import AppliPlanteConnectee.AppliPlanteConnectee;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -11,33 +11,40 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ListController {
 
 	@FXML
-	private TableView<ConnectedFlower> table;
+	private TableView<FlowerSpecies> table;
 
 	@SuppressWarnings("unchecked")
 	public void initialize() {
 		table.getColumns().clear();
 
-		TableColumn<ConnectedFlower, Integer> columnId = new TableColumn<>("Id");
+		TableColumn<FlowerSpecies, Integer> columnId = new TableColumn<>("Id");
 		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-		TableColumn<ConnectedFlower, String> columnName = new TableColumn<>("Nom");
+		TableColumn<FlowerSpecies, String> columnName = new TableColumn<>("Nom");
 		columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-		TableColumn<ConnectedFlower, Integer> columnActualTemperature = new TableColumn<>("Temperature Actuelle");
-		columnActualTemperature.setCellValueFactory(new PropertyValueFactory<>("actualTemperature"));
 		
-		TableColumn<ConnectedFlower, Integer> columnActualLuminosity = new TableColumn<>("Luminositée Actuelle");
-		columnActualLuminosity.setCellValueFactory(new PropertyValueFactory<>("actualLuminosity"));
+		TableColumn<FlowerSpecies, String> columnDescription = new TableColumn<>("Description");
+		columnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 
-		TableColumn<ConnectedFlower, Boolean> columnActualHumidity = new TableColumn<>("Humidité Actuelle");
-		columnActualHumidity.setCellValueFactory(new PropertyValueFactory<>("actualHumidity"));
+		TableColumn<FlowerSpecies, Integer> columnTemperature = new TableColumn<>("Temperature Idéale");
+		columnTemperature.setCellValueFactory(new PropertyValueFactory<>("temperature"));
 		
-		TableColumn<ConnectedFlower, String> columnTime = new TableColumn<>("Date du dernier relevé");
-		columnTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+		TableColumn<FlowerSpecies, Integer> columnLuminosity = new TableColumn<>("Luminositée Idéale");
+		columnLuminosity.setCellValueFactory(new PropertyValueFactory<>("luminosity"));
 
-		table.getColumns().addAll(columnId, columnName, columnActualTemperature, columnActualLuminosity, columnActualHumidity, columnTime);
+		TableColumn<FlowerSpecies, Boolean> columnHumidity = new TableColumn<>("Humidité Idéale");
+		columnHumidity.setCellValueFactory(new PropertyValueFactory<>("humidity"));
+		
+		TableColumn<FlowerSpecies, String> columnBlossomingPeriodStart = new TableColumn<>("Début de la période de floraison");
+		columnBlossomingPeriodStart.setCellValueFactory(new PropertyValueFactory<>("blossomingPeriodStart"));
+		
+		TableColumn<FlowerSpecies, String> columnBlossomingPeriodEnd = new TableColumn<>("Fin de la période de floraison");
+		columnBlossomingPeriodEnd.setCellValueFactory(new PropertyValueFactory<>("blossomingPeriodEnd"));
+		
 
-		table.setItems(FXCollections.observableArrayList(AppliPlanteConnectee.instance.connectedFlowerRepository.getAll()));
+		table.getColumns().addAll(columnId, columnName, columnDescription, columnTemperature, columnLuminosity, columnHumidity, columnBlossomingPeriodStart, columnBlossomingPeriodEnd);
+
+		table.setItems(FXCollections.observableArrayList(AppliPlanteConnectee.instance.flowerSpeciesRepository.getAll()));
 
 	}
 
