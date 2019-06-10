@@ -33,18 +33,18 @@ public FlowerSpeciesRepository() {
 
 	@Override
 	public void addOrUpdate(ConnectedFlower item) {
-		try {
-			stmt = conn.createStatement();
-			String nom = item.getName();
-			
-		}
+//		try {
+//			stmt = conn.createStatement();
+//			String nom = item.getName();
+//			
+//		}
 
 	}
 
 	@Override
 	public List<ConnectedFlower> getAll() {
 
-
+		return null;
 
 	}
 
