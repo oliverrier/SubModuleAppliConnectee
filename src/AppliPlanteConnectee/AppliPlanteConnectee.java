@@ -1,30 +1,32 @@
 /**
  * 
  */
-package laboCrudJavaFx;
+package AppliPlanteConnectee;
 
 import java.io.IOException;
 
+import AppliPlanteConnectee.repository.bdd.FlowerRepository;
+import AppliPlanteConnectee.repository.offline.FlowerOfflineRepository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import laboCrudJavaFx.model.Poney;
-import laboCrudJavaFx.repository.Repository;
-import laboCrudJavaFx.repository.bdd.PoneyRepository;
+import AppliPlanteConnectee.model.Flower;
+import AppliPlanteConnectee.repository.Repository;
+import AppliPlanteConnectee.repository.bdd.FlowerRepository;
 
 /**
  * @author sebbo
  *
  */
-public class LaboCrudJavaFx extends Application {
+public class AppliPlanteConnectee extends Application {
 
-	public static LaboCrudJavaFx instance;
+	public static AppliPlanteConnectee instance;
 
 	private Stage primaryStage;
 
-	public Repository<Flower> PoneyRepository = new PoneyRepository();
+	public Repository<Flower> FlowerRepository = new FlowerOfflineRepository();
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {

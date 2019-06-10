@@ -1,13 +1,13 @@
 /**
  * 
  */
-package laboCrudJavaFx.model;
+package AppliPlanteConnectee.model;
 
 /**
  * @author sebbo
  *
  */
-public class Flower extends FlowerSpecies {
+public class Flower {
 
 	private int id;
 
@@ -19,57 +19,115 @@ public class Flower extends FlowerSpecies {
 	
 	private boolean actualHumidity;
 	
-	private Date time;
+	private String time;
+	
+	private int idFlowerSpecies;
 	
 	public Flower(String flowerName) {
-		this.super();
+		this.id = 0;
 		this.flowerName = flowerName;
+		this.actualTemperature = 20;
+		this.actualLuminosity = 30;
+		this.actualHumidity = true;
+		this.time = "now";
+		this.idFlowerSpecies = 1;
 	}
-	
-	public int getId(){
-		return this.id;
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
 	}
-	
+
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public String getFlowerName(){
-		return this.flowerName}
-	
+
+	/**
+	 * @return the flowerName
+	 */
+	public String getFlowerName() {
+		return flowerName;
+	}
+
+	/**
+	 * @param flowerName the flowerName to set
+	 */
 	public void setFlowerName(String flowerName) {
-		this.flowerName;
+		this.flowerName = flowerName;
 	}
-	
-	public int getActualTemperature(){
-		return this.actualTemperature;
+
+	/**
+	 * @return the actualTemperature
+	 */
+	public int getActualTemperature() {
+		return actualTemperature;
 	}
-	
+
+	/**
+	 * @param actualTemperature the actualTemperature to set
+	 */
 	public void setActualTemperature(int actualTemperature) {
 		this.actualTemperature = actualTemperature;
 	}
-	
-	public int getAcualLuminosity(){
-		return this.actualLuminosity;
+
+	/**
+	 * @return the actualLuminosity
+	 */
+	public int getActualLuminosity() {
+		return actualLuminosity;
 	}
-	
+
+	/**
+	 * @param actualLuminosity the actualLuminosity to set
+	 */
 	public void setActualLuminosity(int actualLuminosity) {
 		this.actualLuminosity = actualLuminosity;
 	}
-	
-	public boolean getActualHumidity){
-		return this.actualHumidity;
+
+	/**
+	 * @return the actualHumidity
+	 */
+	public boolean isActualHumidity() {
+		return actualHumidity;
 	}
-	
-	public void setActualHumidity(int actualHumidity) {
+
+	/**
+	 * @param actualHumidity the actualHumidity to set
+	 */
+	public void setActualHumidity(boolean actualHumidity) {
 		this.actualHumidity = actualHumidity;
 	}
-	
-	public Date getTime(){
-		return this.time;
+
+	/**
+	 * @return the time
+	 */
+	public String getTime() {
+		return time;
 	}
-	
-	public void setTime(Date time) {
+
+	/**
+	 * @param time the time to set
+	 */
+	public void setTime(String time) {
 		this.time = time;
+	}
+
+	/**
+	 * @return the idFlowerSpecies
+	 */
+	public int getIdFlowerSpecies() {
+		return idFlowerSpecies;
+	}
+
+	/**
+	 * @param idFlowerSpecies the idFlowerSpecies to set
+	 */
+	public void setIdFlowerSpecies(int idFlowerSpecies) {
+		this.idFlowerSpecies = idFlowerSpecies;
 	}
 }

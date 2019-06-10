@@ -1,6 +1,6 @@
-package laboCrudJavaFx.view.home;
+package AppliPlanteConnectee.view.home;
 
-import laboCrudJavaFx.LaboCrudJavaFx;
+import AppliPlanteConnectee.AppliPlanteConnectee;
 
 public class HomeController {
 
@@ -8,10 +8,10 @@ public class HomeController {
 	}
 
 	public void GoToList() {
-		LaboCrudJavaFx.instance.changePage("view/list/ListView.fxml");
+		AppliPlanteConnectee.instance.changePage("view/list/ListView.fxml");
 	}
 
 	public void GoToAdd() {
-		LaboCrudJavaFx.instance.changePage("view/add/AddView.fxml");
+		AppliPlanteConnectee.instance.changePage("view/add/AddView.fxml");
 	}
 }

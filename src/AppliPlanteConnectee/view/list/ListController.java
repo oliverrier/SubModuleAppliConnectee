@@ -1,18 +1,19 @@
-package laboCrudJavaFx.view.list;
+package AppliPlanteConnectee.view.list;
 
+import AppliPlanteConnectee.model.Flower;
+import AppliPlanteConnectee.AppliPlanteConnectee;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import laboCrudJavaFx.LaboCrudJavaFx;
-import laboCrudJavaFx.model.Poney;
 
 public class ListController {
 
 	@FXML
 	private TableView<Flower> table;
 
+	@SuppressWarnings("unchecked")
 	public void initialize() {
 		table.getColumns().clear();
 
@@ -20,27 +21,27 @@ public class ListController {
 		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 
 		TableColumn<Flower, String> columnName = new TableColumn<>("Nom");
-		columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+		columnName.setCellValueFactory(new PropertyValueFactory<>("flowerName"));
 
 		TableColumn<Flower, Integer> columnActualTemperature = new TableColumn<>("Temperature Actuelle");
-		columnId.setCellValueFactory(new PropertyValueFactory<>("actualTemperature"));
+		columnActualTemperature.setCellValueFactory(new PropertyValueFactory<>("actualTemperature"));
 		
 		TableColumn<Flower, Integer> columnActualLuminosity = new TableColumn<>("Luminositée Actuelle");
-		columnId.setCellValueFactory(new PropertyValueFactory<>("actualLuminosity"));
+		columnActualLuminosity.setCellValueFactory(new PropertyValueFactory<>("actualLuminosity"));
 
 		TableColumn<Flower, Boolean> columnActualHumidity = new TableColumn<>("Humidité Actuelle");
-		columnId.setCellValueFactory(new PropertyValueFactory<>("actualHumidity"));
+		columnActualHumidity.setCellValueFactory(new PropertyValueFactory<>("actualHumidity"));
 		
-		TableColumn<Flower, Date> columnTime = new TableColumn<>("Date du dernier relevé");
-		columnId.setCellValueFactory(new PropertyValueFactory<>("time"));
+		TableColumn<Flower, String> columnTime = new TableColumn<>("Date du dernier relevé");
+		columnTime.setCellValueFactory(new PropertyValueFactory<>("time"));
 
 		table.getColumns().addAll(columnId, columnName, columnActualTemperature, columnActualLuminosity, columnActualHumidity, columnTime);
 
-		table.setItems(FXCollections.observableArrayList(LaboCrudJavaFx.instance.FlowerRepository.getAll()));
+		table.setItems(FXCollections.observableArrayList(AppliPlanteConnectee.instance.FlowerRepository.getAll()));
 
 	}
 
 	public void back() {
-		LaboCrudJavaFx.instance.changePage("view/home/HomeView.fxml");
+		AppliPlanteConnectee.instance.changePage("view/home/HomeView.fxml");
 	}
 }

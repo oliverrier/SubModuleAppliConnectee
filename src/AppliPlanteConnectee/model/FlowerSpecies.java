@@ -1,3 +1,6 @@
+package AppliPlanteConnectee.model;
+
+
 /**
  * 
  */
@@ -6,7 +9,7 @@
  * @author Irohn
  *
  */
-public abstract class FlowerSpecies {
+public class FlowerSpecies {
 
 	private int id;
 
@@ -18,11 +21,21 @@ public abstract class FlowerSpecies {
 	
 	private boolean idealHumidity;
 	
-	private Date startBlossoming;
+	private String startBlossoming;
 
-	private Date endBlossoming;
+	private String endBlossoming;
 	
-	public Flower(int id, String flowerSpeciesName, int idealTemperature, int idealLuminosity, boolean idealHumidity, Date startBlossoming, Date endBlossoming) {
+	public FlowerSpecies() {
+		this.id = 0;
+		this.flowerSpeciesName = "rosacées";
+		this.idealTemperature = 18;
+		this.idealLuminosity = 30;
+		this.idealHumidity = true;
+		this.startBlossoming = "Janvier";
+		this.endBlossoming = "Janvier";
+	}
+	
+	public FlowerSpecies(int id, String flowerSpeciesName, int idealTemperature, int idealLuminosity, boolean idealHumidity, String startBlossoming, String endBlossoming) {
 		this.id = id;
 		this.flowerSpeciesName = flowerSpeciesName;
 		this.idealTemperature = idealTemperature;
@@ -31,62 +44,107 @@ public abstract class FlowerSpecies {
 		this.startBlossoming = startBlossoming;
 		this.endBlossoming = endBlossoming;
 	}
-	
-	public int getId(){
-		return this.id;
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
 	}
-	
+
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public int getFlowerSpeciesName(){
-		return this.flowerSpeciesName;
+
+	/**
+	 * @return the flowerSpeciesName
+	 */
+	public String getFlowerSpeciesName() {
+		return flowerSpeciesName;
 	}
-	
-	public void setFlowerSpeciesName(int flowerSpeciesName) {
+
+	/**
+	 * @param flowerSpeciesName the flowerSpeciesName to set
+	 */
+	public void setFlowerSpeciesName(String flowerSpeciesName) {
 		this.flowerSpeciesName = flowerSpeciesName;
 	}
-	
-	public int getIdealTemperature(){
-		return this.idealTemperature;
+
+	/**
+	 * @return the idealTemperature
+	 */
+	public int getIdealTemperature() {
+		return idealTemperature;
 	}
-	
+
+	/**
+	 * @param idealTemperature the idealTemperature to set
+	 */
 	public void setIdealTemperature(int idealTemperature) {
 		this.idealTemperature = idealTemperature;
 	}
-	
-	public int getIdealLuminosity(){
-		return this.idealLuminosity;
+
+	/**
+	 * @return the idealLuminosity
+	 */
+	public int getIdealLuminosity() {
+		return idealLuminosity;
 	}
-	
+
+	/**
+	 * @param idealLuminosity the idealLuminosity to set
+	 */
 	public void setIdealLuminosity(int idealLuminosity) {
 		this.idealLuminosity = idealLuminosity;
 	}
-	
-	public boolean getIdealHumidity(){
-		return this.idealHumidity;
+
+	/**
+	 * @return the idealHumidity
+	 */
+	public boolean isIdealHumidity() {
+		return idealHumidity;
 	}
-	
-	public void setIdealHumidity(int idealHumidity) {
+
+	/**
+	 * @param idealHumidity the idealHumidity to set
+	 */
+	public void setIdealHumidity(boolean idealHumidity) {
 		this.idealHumidity = idealHumidity;
 	}
-	
-	public Date getStartBlossoming(){
-		return this.startBlossoming;
+
+	/**
+	 * @return the startBlossoming
+	 */
+	public String getStartBlossoming() {
+		return startBlossoming;
 	}
-	
-	public void setStartBlossoming(Date startBlossoming) {
+
+	/**
+	 * @param startBlossoming the startBlossoming to set
+	 */
+	public void setStartBlossoming(String startBlossoming) {
 		this.startBlossoming = startBlossoming;
 	}
-	
-	public Date getEndBlossoming(){
-		return this.endBlossoming;
+
+	/**
+	 * @return the endBlossoming
+	 */
+	public String getEndBlossoming() {
+		return endBlossoming;
 	}
-	
-	public void setEndBlossoming(int endBlossoming) {
+
+	/**
+	 * @param endBlossoming the endBlossoming to set
+	 */
+	public void setEndBlossoming(String endBlossoming) {
 		this.endBlossoming = endBlossoming;
 	}
+	
+
+	
 	
 	
 }

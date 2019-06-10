@@ -1,7 +1,7 @@
 /**
  * 
  */
-package laboCrudJavaFx.repository;
+package AppliPlanteConnectee.repository;
 
 import java.util.List;
 

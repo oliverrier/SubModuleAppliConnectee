@@ -1,11 +1,11 @@
-package laboCrudJavaFx.repository.offline;
+package AppliPlanteConnectee.repository.offline;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import laboCrudJavaFx.model.Poney;
-import laboCrudJavaFx.repository.Repository;
+import AppliPlanteConnectee.model.Flower;
+import AppliPlanteConnectee.repository.Repository;
 
 /**
  * @author sebbo
@@ -16,8 +16,8 @@ public class FlowerOfflineRepository implements Repository<Flower> {
 	private List<Flower> flowers = new ArrayList<>();
 
 	public FlowerOfflineRepository() {
-		addOrUpdate(new Flower("Bob"));
-		addOrUpdate(new Flower("George"));
+		addOrUpdate(new Flower("Rose"));
+		addOrUpdate(new Flower("Pissenlit"));
 	}
 
 	@Override

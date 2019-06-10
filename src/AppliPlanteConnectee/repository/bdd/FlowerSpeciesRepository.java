@@ -1,6 +1,3 @@
-/**
- * 
- */
 package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
@@ -11,13 +8,9 @@ import java.util.List;
 import AppliPlanteConnectee.model.Flower;
 import AppliPlanteConnectee.repository.Repository;
 
-/**
- * @author sebbo
- *
- */
-public class FlowerRepository implements Repository<Flower> {
-
-	public FlowerRepository() {
+public class FlowerSpeciesRepository implements Repository<Flower>{
+	
+public FlowerSpeciesRepository() {
 		
 		Connection conn = null;
 		try {
