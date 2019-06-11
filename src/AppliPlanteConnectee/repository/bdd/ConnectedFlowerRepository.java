@@ -5,6 +5,7 @@ package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
 
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,9 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import AppliPlanteConnectee.model.Category;
 import AppliPlanteConnectee.model.ConnectedFlower;
-import AppliPlanteConnectee.model.FlowerSummary;
 import AppliPlanteConnectee.repository.Repository;
 
 /**

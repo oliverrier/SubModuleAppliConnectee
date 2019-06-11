@@ -79,27 +79,27 @@ public void addOrUpdate(FlowerSummary item) {
 
 @Override
 public List<FlowerSummary> getAll() {
-	FlowerSummary flowerSummary = new FlowerSummary();
 	try {
         
         
-        String getAll = "SELECT * FROM FlowerSummary;" ;
-        PreparedStatement preparedStatement = conn.prepareStatement(getAll, Statement.RETURN_GENERATED_KEYS);
-        
-        preparedStatement.executeUpdate();
-        System.out.println(preparedStatement);
-        ResultSet resultat = preparedStatement.getGeneratedKeys();
-        System.out.println(resultat.next());
-        while (!resultat.next()) {
 
-        	flowerSummary.setId(resultat.getInt(1));
-        	flowerSummary.setAthmosphericTemperature(resultat.getInt(2));
-        	flowerSummary.setLuminosity(resultat.getInt(3));
-        	flowerSummary.setHumidity(resultat.getBoolean(4));
-        	flowerSummary.setDateHour(resultat.getDate(5));
-        	flowerSummary.setIdConnectedFlower(resultat.getInt(6));
+        PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM FlowerSummary");
+        
+        ResultSet resultat = preparedStatement.executeQuery();
+        System.out.println(preparedStatement);
+        System.out.println(resultat);
+        while (resultat.next()) {
+        	System.out.println(resultat.getInt("id"));
+        	FlowerSummary flowerSummary = new FlowerSummary();
+        	flowerSummary.setId(resultat.getInt("id"));
+        	flowerSummary.setAthmosphericTemperature(resultat.getInt("atmosphericTemperature"));
+        	flowerSummary.setLuminosity(resultat.getInt("luminosity"));
+        	flowerSummary.setHumidity(resultat.getBoolean("humidity"));
+        	flowerSummary.setDateHour(resultat.getDate("dateHour"));
+        	flowerSummary.setIdConnectedFlower(resultat.getInt("idConnectedFlower"));
         	flowerSummarys.add(flowerSummary);
 		}
+
         
     } catch (SQLException e) {
         // TODO Auto-generated catch block

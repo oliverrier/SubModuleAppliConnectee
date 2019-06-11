@@ -2,21 +2,12 @@ package AppliPlanteConnectee.view.flowerSpeciesView.list;
 
 import AppliPlanteConnectee.model.FlowerSpecies;
 
-import java.util.List;
-
 import AppliPlanteConnectee.AppliPlanteConnectee;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.converter.BooleanStringConverter;
-import javafx.util.converter.NumberStringConverter;
 
 public class ListController {
 

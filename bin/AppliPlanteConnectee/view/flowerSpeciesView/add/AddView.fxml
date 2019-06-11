@@ -4,23 +4,33 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppliPlanteConnectee.view.flowerSpeciesView.add.AddController">
     <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button layoutX="236.0" layoutY="211.0" mnemonicParsing="false" onAction="#add" text="Add" />
-            <TextField fx:id="addId" layoutX="14.0" layoutY="319.0" prefHeight="25.0" prefWidth="60.0" />
-            <TextField fx:id="addName" layoutX="88.0" layoutY="319.0" prefHeight="25.0" prefWidth="60.0" />
-            <TextField fx:id="addDescription" layoutX="162.0" layoutY="319.0" prefHeight="25.0" prefWidth="60.0" />
-            <TextField fx:id="addTemperature" layoutX="229.0" layoutY="319.0" prefHeight="25.0" prefWidth="60.0" />
-            <TextField fx:id="addLuminosity" layoutX="300.0" layoutY="319.0" prefHeight="25.0" prefWidth="60.0" />
-            <TextField fx:id="addHumidity" layoutX="372.0" layoutY="319.0" prefHeight="25.0" prefWidth="60.0" />
-            <TextField fx:id="addBlossomingPeriodStart" layoutX="447.0" layoutY="319.0" prefHeight="25.0" prefWidth="60.0" />
-            <TextField fx:id="addBlossomingPeriodEnd" layoutX="526.0" layoutY="319.0" prefHeight="25.0" prefWidth="60.0" />
-            <Text layoutX="208.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a new flower" />
-            <Button layoutX="128.0" layoutY="257.0" mnemonicParsing="false" onAction="#back" text="Back to Home" />
+            <Button layoutX="82.0" layoutY="348.0" mnemonicParsing="false" onAction="#add" text="Add" />
+            <TextField fx:id="addName" layoutX="218.0" layoutY="93.0" prefHeight="25.0" prefWidth="60.0" />
+            <TextField fx:id="addDescription" layoutX="180.0" layoutY="236.0" prefHeight="91.0" prefWidth="316.0" />
+            <TextField fx:id="addTemperature" layoutX="453.0" layoutY="93.0" prefHeight="25.0" prefWidth="60.0" />
+            <TextField fx:id="addLuminosity" layoutX="453.0" layoutY="188.0" prefHeight="25.0" prefWidth="60.0" />
+            <TextField fx:id="addHumidity" layoutX="453.0" layoutY="147.0" prefHeight="25.0" prefWidth="60.0" />
+            <TextField fx:id="addBlossomingPeriodStart" layoutX="218.0" layoutY="139.0" prefHeight="25.0" prefWidth="60.0" />
+            <TextField fx:id="addBlossomingPeriodEnd" layoutX="218.0" layoutY="180.0" prefHeight="25.0" prefWidth="60.0" />
+            <Text layoutX="147.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter une nouvelle espèce de fleur">
+               <font>
+                  <Font size="19.0" />
+               </font></Text>
+            <Button layoutX="408.0" layoutY="348.0" mnemonicParsing="false" onAction="#back" text="Back to Home" />
+            <Text layoutX="55.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :" />
+            <Text layoutX="67.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :" />
+            <Text layoutX="355.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luminosité :" />
+            <Text layoutX="330.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Température idéale :" />
+            <Text layoutX="360.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Humidité :" />
+            <Text layoutX="20.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fin de la période de floraison :" />
+            <Text layoutX="12.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Début de la période de floraison :" />
          </children>
       </Pane>
     </children>

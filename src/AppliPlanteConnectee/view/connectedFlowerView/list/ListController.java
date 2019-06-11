@@ -1,8 +1,6 @@
 package AppliPlanteConnectee.view.connectedFlowerView.list;
 
 import AppliPlanteConnectee.model.ConnectedFlower;
-import AppliPlanteConnectee.model.FlowerSpecies;
-import AppliPlanteConnectee.model.FlowerSummary;
 import AppliPlanteConnectee.AppliPlanteConnectee;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;

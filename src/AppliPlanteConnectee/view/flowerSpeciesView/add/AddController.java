@@ -6,16 +6,10 @@ package AppliPlanteConnectee.view.flowerSpeciesView.add;
 import AppliPlanteConnectee.AppliPlanteConnectee;
 
 
-import AppliPlanteConnectee.model.ConnectedFlower;
 import AppliPlanteConnectee.model.FlowerSpecies;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
-import javafx.util.converter.BooleanStringConverter;
-import javafx.util.converter.NumberStringConverter;
 
 /**
  * @author antoi
@@ -28,28 +22,36 @@ public class AddController {
 	
 	TextField addId = new TextField();
 //	addId.setPromptText("Id");
-
+	
+	@FXML
 	TextField addName = new TextField();
 //	addName.setPromptText("Nom");
-
+	
+	@FXML
 	TextField addDescription = new TextField();
 //	addDescription.setPromptText("Description");
-
+	
+	@FXML
 	TextField addTemperature = new TextField();
 //	addTemperature.setPromptText("Température");
-
+	
+	@FXML
 	TextField addLuminosity = new TextField();
 //	addLuminosity.setPromptText("Luminosité");
-
+	
+	@FXML
 	TextField addHumidity = new TextField();
 //	addHumidity.setPromptText("Humidité");
-
+	
+	@FXML
 	TextField addBlossomingPeriodStart = new TextField();
 //	addBlossomingPeriodStart.setPromptText("Début de la période de floraison");
-
+	
+	@FXML
 	TextField addBlossomingPeriodEnd = new TextField();
 //	addBlossomingPeriodEnd.setPromptText("Fin de la période de floraison");
 	
+	@FXML
 	Button addButton = new Button("Add");
 
 	public void add() {

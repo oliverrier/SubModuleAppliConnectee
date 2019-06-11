@@ -24,8 +24,10 @@ public CategoryRepository() {
 		
 
 		try {
-			// db parameters
-			String url = "jdbc:sqlite:D:\\Workspace\\AppliPlanteConnectee/qzdqzd.db";
+			
+			String username ="qlp";
+			String password ="qlp";
+			String url = "jdbc:mysql://192.168.43.23:3306/connectedFlower?user=" + username + "&password=" + password + "&useUnicode=true&characterEncoding=UTF-8";
 			// create a connection to the database
 			conn = DriverManager.getConnection(url);
 
@@ -106,6 +108,7 @@ public CategoryRepository() {
 	@Override
 	public Category get(int id) {
 		Statement statement = null;
+    	Category category = new Category();
 		try {
             statement = conn.createStatement();
             
@@ -116,9 +119,10 @@ public CategoryRepository() {
             preparedStatement.executeUpdate();
             ResultSet resultat = statement.getGeneratedKeys();
             while (resultat.next()) {
-            	Category category = new Category();
+
             	category.setId(resultat.getInt(1));
             	category.setCategoryFlower(resultat.getString(2));
+
 			}
 
 

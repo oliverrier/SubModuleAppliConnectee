@@ -1,7 +1,5 @@
 package AppliPlanteConnectee.view.flowerSummaryView.list;
 
-import AppliPlanteConnectee.model.ConnectedFlower;
-
 import AppliPlanteConnectee.model.FlowerSummary;
 
 import java.sql.Date;
