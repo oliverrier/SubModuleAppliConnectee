@@ -1,6 +1,8 @@
 package AppliPlanteConnectee.view.connectedFlowerView.list;
 
 import AppliPlanteConnectee.model.ConnectedFlower;
+import AppliPlanteConnectee.model.FlowerSpecies;
+import AppliPlanteConnectee.model.FlowerSummary;
 import AppliPlanteConnectee.AppliPlanteConnectee;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -31,9 +33,16 @@ public class ListController {
 		
 	}
 	
-	public void flowerSummary() {
+	public FlowerSummary getSelectedFlowerSummary() {
 		ConnectedFlower selectedFlower = table.getSelectionModel().getSelectedItem();
+		FlowerSummary selectedFlowerSummary = new FlowerSummary();
+		selectedFlowerSummary.setIdConnectedFlower(selectedFlower.getId());
 		AppliPlanteConnectee.instance.changePage("view/flowerSummaryView/list/ListView.fxml");
+		return selectedFlowerSummary;
+	}
+	
+	public void add() {
+		AppliPlanteConnectee.instance.changePage("view/connectedFlowerView/add/AddView.fxml");
 	}
 
 	public void back() {

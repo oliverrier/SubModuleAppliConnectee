@@ -20,6 +20,15 @@ public class FlowerSummary {
 			this.idConnectedFlower = 1;
 		}
 		
+		public FlowerSummary(int id, int athmosphericTemperature, int luminosity, boolean humidity, Date dateHour) {
+			super();
+			this.id = id;
+			this.athmosphericTemperature = athmosphericTemperature;
+			this.luminosity = luminosity;
+			this.humidity = humidity;
+			this.dateHour = dateHour;
+		}
+
 		/**
 		 * @return the id
 		 */

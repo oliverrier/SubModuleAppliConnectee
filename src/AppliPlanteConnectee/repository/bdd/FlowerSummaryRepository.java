@@ -116,7 +116,7 @@ public FlowerSummary get(int id) {
         PreparedStatement preparedStatement = conn.prepareStatement(get);
         
         preparedStatement.executeUpdate();
-
+        // Manque Récupérer l'objet
 		FlowerSummary.add(item);
 
     } catch (SQLException e) {
