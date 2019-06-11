@@ -56,7 +56,7 @@ public class AddController {
 
 	public void add() {
 		AppliPlanteConnectee.instance.flowerSpeciesRepository.addOrUpdate(new FlowerSpecies(
-	        	Integer.parseInt(addId.getText()),
+	        	1,
 	            addName.getText(),
 	            addDescription.getText(),
 	            Integer.parseInt(addTemperature.getText()),

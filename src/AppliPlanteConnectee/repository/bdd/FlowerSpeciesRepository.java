@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import java.sql.Statement;
@@ -16,7 +17,7 @@ import AppliPlanteConnectee.repository.Repository;
 public class FlowerSpeciesRepository implements Repository<FlowerSpecies>{
 	
 	Connection conn = null;
-	List<FlowerSpecies> listFlowerSpecies;
+	private List<FlowerSpecies> listFlowerSpecies = new ArrayList<>();
 	
 public FlowerSpeciesRepository() {
     
@@ -88,6 +89,7 @@ public FlowerSpeciesRepository() {
 	public List<FlowerSpecies> getAll() {
 		Statement statement = null;
 		FlowerSpecies flowerSpecies = new FlowerSpecies();
+		listFlowerSpecies.clear();
 		try {
 	        statement = conn.createStatement();
 	        

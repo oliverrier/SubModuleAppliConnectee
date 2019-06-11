@@ -11,7 +11,7 @@
     <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button layoutX="82.0" layoutY="348.0" mnemonicParsing="false" onAction="#add" text="Add" />
+            <Button layoutX="82.0" layoutY="348.0" mnemonicParsing="false" onAction="#add" text="Ajouter" />
             <TextField fx:id="addName" layoutX="218.0" layoutY="93.0" prefHeight="25.0" prefWidth="60.0" />
             <TextField fx:id="addDescription" layoutX="180.0" layoutY="236.0" prefHeight="91.0" prefWidth="316.0" />
             <TextField fx:id="addTemperature" layoutX="453.0" layoutY="93.0" prefHeight="25.0" prefWidth="60.0" />
@@ -23,7 +23,7 @@
                <font>
                   <Font size="19.0" />
                </font></Text>
-            <Button layoutX="408.0" layoutY="348.0" mnemonicParsing="false" onAction="#back" text="Back to Home" />
+            <Button layoutX="408.0" layoutY="348.0" mnemonicParsing="false" onAction="#back" text="Retour à l'accueil" />
             <Text layoutX="55.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :" />
             <Text layoutX="67.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :" />
             <Text layoutX="355.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luminosité :" />

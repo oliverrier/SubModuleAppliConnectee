@@ -83,7 +83,7 @@ public List<FlowerSummary> getAll() {
         
         
 
-        PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM FlowerSummary");
+        PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM FlowerSummary;");
         
         ResultSet resultat = preparedStatement.executeQuery();
         System.out.println(preparedStatement);

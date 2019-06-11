@@ -35,8 +35,15 @@ import AppliPlanteConnectee.repository.bdd.FlowerSpeciesRepository;
 import AppliPlanteConnectee.repository.bdd.FlowerSummaryRepository;
 import AppliPlanteConnectee.repository.bdd.PicturesRepository;
 
+
 // Offline DB repository import
 
+
+import AppliPlanteConnectee.repository.offline.CategoryOfflineRepository;
+import AppliPlanteConnectee.repository.offline.ConnectedFlowerOfflineRepository;
+import AppliPlanteConnectee.repository.offline.FlowerSpeciesOfflineRepository;
+import AppliPlanteConnectee.repository.offline.FlowerSummaryOfflineRepository;
+import AppliPlanteConnectee.repository.offline.PicturesOfflineRepository;
 
 
 
@@ -54,11 +61,11 @@ public class AppliPlanteConnectee extends Application{
 	
 	// Repository creation
 
-	public Repository<ConnectedFlower> connectedFlowerRepository = new ConnectedFlowerRepository();
-	public Repository<FlowerSpecies> flowerSpeciesRepository = new FlowerSpeciesRepository();
+	public Repository<ConnectedFlower> connectedFlowerRepository = new ConnectedFlowerOfflineRepository();
+	public Repository<FlowerSpecies> flowerSpeciesRepository = new FlowerSpeciesOfflineRepository();
 	public Repository<FlowerSummary> flowerSummaryRepository = new FlowerSummaryRepository();
-	public Repository<Category> categoryRepository = new CategoryRepository();
-	public Repository<Pictures> picturesRepository = new PicturesRepository();
+	public Repository<Category> categoryRepository = new CategoryOfflineRepository();
+	public Repository<Pictures> picturesRepository = new PicturesOfflineRepository();
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
