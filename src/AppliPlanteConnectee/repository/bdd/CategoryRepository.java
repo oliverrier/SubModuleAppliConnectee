@@ -2,8 +2,10 @@ package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
 
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ import AppliPlanteConnectee.repository.Repository;
 public class CategoryRepository implements Repository<Category> {
 	
 	Connection conn = null;
-	private List<Category> categories = new ArrayList<>();
+	public List<Category> categories = new ArrayList<>();
 
 	
 public CategoryRepository() {
@@ -72,12 +74,18 @@ public CategoryRepository() {
             
             
             String getAll = "SELECT * FROM Category;" ;
-            PreparedStatement preparedStatement = conn.prepareStatement(getAll);
+            PreparedStatement preparedStatement = conn.prepareStatement(getAll, Statement.RETURN_GENERATED_KEYS);
             
             preparedStatement.executeUpdate();
-            for (Category category : preparedStatement) {
+            ResultSet resultat = statement.getGeneratedKeys();
+            while (resultat.next()) {
+            	Category category = new Category();
+            	category.setId(resultat.getInt(1));
+            	category.setCategoryFlower(resultat.getString(2));
             	categories.add(category);
 			}
+            
+
 //            rs = statement.executeQuery(add);
 //            while (rs.next()) {
 //            System.out.println(rs.getString(""));    
@@ -92,6 +100,7 @@ public CategoryRepository() {
                 e.printStackTrace();
             }    
         }
+        return categories;
 	}
 
 	@Override
@@ -102,10 +111,16 @@ public CategoryRepository() {
             
             
             String get = "SELECT * FROM Category WHERE id = " + id  +";" ;
-            PreparedStatement preparedStatement = conn.prepareStatement(get);
+            PreparedStatement preparedStatement = conn.prepareStatement(get, Statement.RETURN_GENERATED_KEYS);
             
             preparedStatement.executeUpdate();
-            categories.add(item);
+            ResultSet resultat = statement.getGeneratedKeys();
+            while (resultat.next()) {
+            	Category category = new Category();
+            	category.setId(resultat.getInt(1));
+            	category.setCategoryFlower(resultat.getString(2));
+			}
+
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -117,6 +132,7 @@ public CategoryRepository() {
                 e.printStackTrace();
             }    
         }
+		return category;
 	}
 
 	@Override

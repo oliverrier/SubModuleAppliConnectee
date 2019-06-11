@@ -4,14 +4,17 @@
 package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
 import AppliPlanteConnectee.model.Category;
 import AppliPlanteConnectee.model.ConnectedFlower;
+import AppliPlanteConnectee.model.FlowerSummary;
 import AppliPlanteConnectee.repository.Repository;
 
 /**
@@ -28,7 +31,9 @@ public class ConnectedFlowerRepository implements Repository<ConnectedFlower> {
 
 		try {
 			// db parameters
-			String url = "jdbc:sqlite:D:\\Workspace\\AppliPlanteConnectee/qzdqzd.db";
+			String username ="qlp";
+			String password ="qlp";
+			String url = "jdbc:mysql://192.168.43.23:3306/connectedFlower?user=" + username + "&password=" + password + "&useUnicode=true&characterEncoding=UTF-8";
 			// create a connection to the database
 			conn = DriverManager.getConnection(url);
 
@@ -76,36 +81,42 @@ public class ConnectedFlowerRepository implements Repository<ConnectedFlower> {
 	@Override
 	public List<ConnectedFlower> getAll() {
 		Statement statement = null;
+		ConnectedFlower connectedFlower = new ConnectedFlower();
 		try {
-            statement = conn.createStatement();
-            
-            
-            String getAll = "SELECT * FROM ConnectedFlower;" ;
-            PreparedStatement preparedStatement = conn.prepareStatement(getAll);
-            
-            preparedStatement.executeUpdate();
-            for (ConnectedFlower connectedFlower : preparedStatement) {
-            	connectedFlowers.add(connectedFlower);
+	        statement = conn.createStatement();
+	        
+	        
+	        String getAll = "SELECT * FROM ConnectedFlower;" ;
+	        PreparedStatement preparedStatement = conn.prepareStatement(getAll, Statement.RETURN_GENERATED_KEYS);
+	        
+	        preparedStatement.executeUpdate();
+	        ResultSet resultat = statement.getGeneratedKeys();
+	        while (resultat.next()) {
+
+	        	connectedFlower.setId(resultat.getInt(1));
+	        	connectedFlower.setName(resultat.getString(2));
+	        	connectedFlower.setIdFlowerSpecies(resultat.getInt(3));
+	        	connectedFlowers.add(connectedFlower);
 			}
-//            rs = statement.executeQuery(add);
-//            while (rs.next()) {
-//            System.out.println(rs.getString(""));    
-//            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } finally {
-            try {
-                statement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }    
-        }
+	        
+	    } catch (SQLException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            statement.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }    
+	    }
+		return connectedFlowers;
 	}
 
 	@Override
 	public ConnectedFlower get(int id) {
 		Statement statement = null;
+		ConnectedFlower connectedFlower = new ConnectedFlower();
+		
 		try {
             statement = conn.createStatement();
             
@@ -114,7 +125,15 @@ public class ConnectedFlowerRepository implements Repository<ConnectedFlower> {
             PreparedStatement preparedStatement = conn.prepareStatement(get);
             
             preparedStatement.executeUpdate();
-            connectedFlowers.add(item);
+            ResultSet resultat = statement.getGeneratedKeys();
+            while (resultat.next()) {
+
+            	connectedFlower.setId(resultat.getInt(1));
+	        	connectedFlower.setName(resultat.getString(2));
+	        	connectedFlower.setIdFlowerSpecies(resultat.getInt(3));
+
+    		}
+
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -126,6 +145,7 @@ public class ConnectedFlowerRepository implements Repository<ConnectedFlower> {
                 e.printStackTrace();
             }    
         }
+    	return connectedFlower;
 	}
 
 	@Override

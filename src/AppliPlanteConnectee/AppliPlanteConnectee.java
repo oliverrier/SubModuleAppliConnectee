@@ -5,6 +5,12 @@ package AppliPlanteConnectee;
 
 // Import
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
 
 // Javafx import
 
@@ -50,7 +56,7 @@ import AppliPlanteConnectee.repository.offline.PicturesOfflineRepository;
  * @author sebbo
  *
  */
-public class AppliPlanteConnectee extends Application {
+public class AppliPlanteConnectee extends Application{
 
 	public static AppliPlanteConnectee instance;
 
@@ -60,7 +66,7 @@ public class AppliPlanteConnectee extends Application {
 
 	public Repository<ConnectedFlower> connectedFlowerRepository = new ConnectedFlowerOfflineRepository();
 	public Repository<FlowerSpecies> flowerSpeciesRepository = new FlowerSpeciesOfflineRepository();
-	public Repository<FlowerSummary> flowerSummaryRepository = new FlowerSummaryOfflineRepository();
+	public Repository<FlowerSummary> flowerSummaryRepository = new FlowerSummaryRepository();
 	public Repository<Category> categoryRepository = new CategoryOfflineRepository();
 	public Repository<Pictures> picturesRepository = new PicturesOfflineRepository();
 
@@ -77,6 +83,8 @@ public class AppliPlanteConnectee extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+		
+		
 	}
 
 	public void changePage(String page) {

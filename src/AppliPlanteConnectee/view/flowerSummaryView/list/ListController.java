@@ -1,6 +1,7 @@
 package AppliPlanteConnectee.view.flowerSummaryView.list;
 
 import AppliPlanteConnectee.model.ConnectedFlower;
+
 import AppliPlanteConnectee.model.FlowerSummary;
 
 import java.sql.Date;
@@ -39,7 +40,7 @@ public class ListController {
 		table.getColumns().addAll(columnId, columnAthmosphericTemperature, columnLuminosity, columnActualHumidity, columnTime);
 		
 //		FlowerSummary flowerSummary = new FlowerSummary();
-//		flowerSummary = AppliPlanteConnectee.instance.;
+//		int SelectedFlowerId = AppliPlanteConnectee.instance.;
 		table.setItems(FXCollections.observableArrayList(AppliPlanteConnectee.instance.flowerSummaryRepository.getAll()));
 
 	}

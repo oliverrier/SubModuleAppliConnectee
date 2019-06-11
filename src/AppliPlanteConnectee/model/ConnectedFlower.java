@@ -20,6 +20,15 @@ public class ConnectedFlower {
 		this.name = name;
 		this.idFlowerSpecies = 1;
 	}
+	
+	
+	public ConnectedFlower() {
+		super();
+		this.id = 1;
+		this.name = "Rose";
+		this.idFlowerSpecies = 2;
+	}
+
 
 	/**
 	 * @return the id

@@ -33,12 +33,14 @@ public class ListController {
 		
 	}
 	
-	public FlowerSummary getSelectedFlowerSummary() {
+	public int getSelectedFlowerId() {
 		ConnectedFlower selectedFlower = table.getSelectionModel().getSelectedItem();
-		FlowerSummary selectedFlowerSummary = new FlowerSummary();
-		selectedFlowerSummary.setIdConnectedFlower(selectedFlower.getId());
 		AppliPlanteConnectee.instance.changePage("view/flowerSummaryView/list/ListView.fxml");
-		return selectedFlowerSummary;
+		return selectedFlower.getId();
+	}
+	
+	public void summary() {
+		AppliPlanteConnectee.instance.changePage("view/flowerSummaryView/list/ListView.fxml");
 	}
 	
 	public void add() {

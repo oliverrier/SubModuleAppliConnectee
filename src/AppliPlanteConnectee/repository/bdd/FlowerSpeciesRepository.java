@@ -1,15 +1,15 @@
 package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.mysql.cj.xdevapi.Statement;
+import java.sql.Statement;
 
-import AppliPlanteConnectee.model.ConnectedFlower;
 import AppliPlanteConnectee.model.FlowerSpecies;
 import AppliPlanteConnectee.repository.Repository;
 
@@ -25,7 +25,9 @@ public FlowerSpeciesRepository() {
 
 		try {
 			// db parameters
-			String url = "jdbc:mysql://localhost:3306/ConnectedFlowers";
+			String username ="qlp";
+			String password ="qlp";
+			String url = "jdbc:mysql://192.168.43.23:3306/connectedFlower?user=" + username + "&password=" + password + "&useUnicode=true&characterEncoding=UTF-8";
 			// create a connection to the database
 			conn = DriverManager.getConnection(url);
 
@@ -85,21 +87,30 @@ public FlowerSpeciesRepository() {
 	@Override
 	public List<FlowerSpecies> getAll() {
 		Statement statement = null;
+		FlowerSpecies flowerSpecies = new FlowerSpecies();
 		try {
 	        statement = conn.createStatement();
 	        
 	        
 	        String getAll = "SELECT * FROM FlowerSpecies;" ;
-	        PreparedStatement preparedStatement = conn.prepareStatement(getAll);
+	        PreparedStatement preparedStatement = conn.prepareStatement(getAll, Statement.RETURN_GENERATED_KEYS);
 	        
 	        preparedStatement.executeUpdate();
-	        for (FlowerSpecies flowerSpecies : preparedStatement) {
+	        ResultSet resultat = statement.getGeneratedKeys();
+	        while (resultat.next()) {
+
+	        	flowerSpecies.setId(resultat.getInt(1));
+	        	flowerSpecies.setName(resultat.getString(2));
+	        	flowerSpecies.setDescription(resultat.getString(3));
+	        	flowerSpecies.setTemperature(resultat.getInt(4));
+	        	flowerSpecies.setLuminosity(resultat.getInt(5));
+	        	flowerSpecies.setHumidity(resultat.getBoolean(6));
+	        	flowerSpecies.setBlossomingPeriodStart(resultat.getString(7));
+	        	flowerSpecies.setBlossomingPeriodEnd(resultat.getString(8));
+	        	flowerSpecies.setIdCategory(resultat.getInt(9));
+
 	        	listFlowerSpecies.add(flowerSpecies);
 			}
-	//        rs = statement.executeQuery(add);
-	//        while (rs.next()) {
-	//        System.out.println(rs.getString(""));    
-	//        }
 	    } catch (SQLException e) {
 	        // TODO Auto-generated catch block
 	        e.printStackTrace();
@@ -110,11 +121,13 @@ public FlowerSpeciesRepository() {
 	            e.printStackTrace();
 	        }    
 	    }
+		return listFlowerSpecies;
 	}
 	
 	@Override
 	public FlowerSpecies get(int id) {
 		Statement statement = null;
+		FlowerSpecies flowerSpecies = new FlowerSpecies();
 		try {
 	        statement = conn.createStatement();
 	        
@@ -123,8 +136,19 @@ public FlowerSpeciesRepository() {
 	        PreparedStatement preparedStatement = conn.prepareStatement(get);
 	        
 	        preparedStatement.executeUpdate();
-	
-			FlowerSpecies.add(item);
+	        ResultSet resultat = statement.getGeneratedKeys();
+	        while (resultat.next()) {
+
+	        	flowerSpecies.setId(resultat.getInt(1));
+	        	flowerSpecies.setName(resultat.getString(2));
+	        	flowerSpecies.setDescription(resultat.getString(3));
+	        	flowerSpecies.setTemperature(resultat.getInt(4));
+	        	flowerSpecies.setLuminosity(resultat.getInt(5));
+	        	flowerSpecies.setHumidity(resultat.getBoolean(6));
+	        	flowerSpecies.setBlossomingPeriodStart(resultat.getString(7));
+	        	flowerSpecies.setBlossomingPeriodEnd(resultat.getString(8));
+	        	flowerSpecies.setIdCategory(resultat.getInt(9));
+			}
 	
 	    } catch (SQLException e) {
 	        // TODO Auto-generated catch block
@@ -136,6 +160,7 @@ public FlowerSpeciesRepository() {
 	            e.printStackTrace();
 	        }    
 	    }
+		return flowerSpecies;
 	}
 	
 	@Override

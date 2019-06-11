@@ -1,19 +1,19 @@
 package AppliPlanteConnectee.repository.bdd;
 
 import java.sql.Connection;
-import java.sql.Date;
+
+import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.sql.Statement;
 
-import com.mysql.cj.xdevapi.Statement;
-
-import AppliPlanteConnectee.model.FlowerSpecies;
 import AppliPlanteConnectee.model.FlowerSummary;
 import AppliPlanteConnectee.repository.Repository;
 
-public class FlowerSummaryRepository implements Repository<FlowerSummaryRepository>{
+public class FlowerSummaryRepository implements Repository<FlowerSummary>{
 	
 	Connection conn = null;
 	List<FlowerSummary> flowerSummarys;
@@ -23,9 +23,12 @@ public FlowerSummaryRepository() {
 
 		try {
 			// db parameters
-			String url = "jdbc:sqlite:D:\\Workspace\\AppliPlanteConnectee/qzdqzd.db";
+			
+			String username ="qlp";
+			String password ="qlp";
+			String url = "jdbc:mysql://192.168.43.23:3306/connectedFlower";
 			// create a connection to the database
-			conn = DriverManager.getConnection(url);
+			conn = DriverManager.getConnection(url, username, password);
 
 			System.out.println("Connection to MySQL has been established.");
 
@@ -45,7 +48,7 @@ public void addOrUpdate(FlowerSummary item) {
         int athmosphericTemperature = item.getAthmosphericTemperature();
         int luminosity = item.getLuminosity();
         boolean humidity = item.isHumidity();
-        java.util.Date dateHour = item.getDateHour();
+        Date dateHour = item.getDateHour();
         int idConnectedFlower = item.getIdConnectedFlower();
         
         
@@ -56,7 +59,7 @@ public void addOrUpdate(FlowerSummary item) {
         preparedStatement.setInt(2, athmosphericTemperature);
         preparedStatement.setInt(3, luminosity);
         preparedStatement.setBoolean(4, humidity);
-        preparedStatement.setDate(4, dateHour);
+        preparedStatement.setDate(4, (java.sql.Date) dateHour);
         preparedStatement.setInt(5, idConnectedFlower);
         
         preparedStatement.executeUpdate();
@@ -76,48 +79,58 @@ public void addOrUpdate(FlowerSummary item) {
 
 @Override
 public List<FlowerSummary> getAll() {
-	Statement statement = null;
+	FlowerSummary flowerSummary = new FlowerSummary();
 	try {
-        statement = conn.createStatement();
         
         
         String getAll = "SELECT * FROM FlowerSummary;" ;
-        PreparedStatement preparedStatement = conn.prepareStatement(getAll);
+        PreparedStatement preparedStatement = conn.prepareStatement(getAll, Statement.RETURN_GENERATED_KEYS);
         
         preparedStatement.executeUpdate();
-        for (FlowerSummary flowerSummary: preparedStatement) {
+        System.out.println(preparedStatement);
+        ResultSet resultat = preparedStatement.getGeneratedKeys();
+        System.out.println(resultat.next());
+        while (!resultat.next()) {
 
-			flowerSummarys.add(flowerSummary);
+        	flowerSummary.setId(resultat.getInt(1));
+        	flowerSummary.setAthmosphericTemperature(resultat.getInt(2));
+        	flowerSummary.setLuminosity(resultat.getInt(3));
+        	flowerSummary.setHumidity(resultat.getBoolean(4));
+        	flowerSummary.setDateHour(resultat.getDate(5));
+        	flowerSummary.setIdConnectedFlower(resultat.getInt(6));
+        	flowerSummarys.add(flowerSummary);
 		}
-//        rs = statement.executeQuery(add);
-//        while (rs.next()) {
-//        System.out.println(rs.getString(""));    
-//        }
+        
     } catch (SQLException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
-    } finally {
-        try {
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }    
-    }
+    }   
+	return flowerSummarys;
 }
 
 @Override
 public FlowerSummary get(int id) {
 	Statement statement = null;
+	FlowerSummary flowerSummary = new FlowerSummary();
 	try {
         statement = conn.createStatement();
         
         
         String get = "SELECT * FROM FlowerSummary WHERE id = " + id  +";" ;
-        PreparedStatement preparedStatement = conn.prepareStatement(get);
+        PreparedStatement preparedStatement = conn.prepareStatement(get, Statement.RETURN_GENERATED_KEYS);
         
         preparedStatement.executeUpdate();
-        // Manque Récupérer l'objet
-		FlowerSummary.add(item);
+        ResultSet resultat = statement.getGeneratedKeys();
+        while (resultat.next()) {
+
+        	flowerSummary.setId(resultat.getInt(1));
+        	flowerSummary.setAthmosphericTemperature(resultat.getInt(2));
+        	flowerSummary.setLuminosity(resultat.getInt(3));
+        	flowerSummary.setHumidity(resultat.getBoolean(4));
+        	flowerSummary.setDateHour(resultat.getDate(5));
+        	flowerSummary.setIdConnectedFlower(resultat.getInt(6));
+		}
+
 
     } catch (SQLException e) {
         // TODO Auto-generated catch block
@@ -129,6 +142,44 @@ public FlowerSummary get(int id) {
             e.printStackTrace();
         }    
     }
+	return flowerSummary;
+}
+
+public FlowerSummary getSummaryFromFlower(int id) {
+	Statement statement = null;
+	FlowerSummary flowerSummary = new FlowerSummary();
+	try {
+        statement = conn.createStatement();
+
+        
+        
+        String get = "SELECT * FROM FlowerSummary JOIN ConnectedFlower ON FlowerSummary.idConnectedFlower = ConnectedFlower.id WHERE ConnectedFlower.id = " + id + ";" ;
+        PreparedStatement preparedStatement = conn.prepareStatement(get, Statement.RETURN_GENERATED_KEYS);
+        
+        preparedStatement.executeUpdate();
+        ResultSet resultat = statement.getGeneratedKeys();
+        while (resultat.next()) {
+
+        	flowerSummary.setId(resultat.getInt(1));
+        	flowerSummary.setAthmosphericTemperature(resultat.getInt(2));
+        	flowerSummary.setLuminosity(resultat.getInt(3));
+        	flowerSummary.setHumidity(resultat.getBoolean(4));
+        	flowerSummary.setDateHour(resultat.getDate(5));
+        	flowerSummary.setIdConnectedFlower(resultat.getInt(6));
+		}
+		
+
+    } catch (SQLException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    } finally {
+        try {
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }    
+    }
+	return flowerSummary;
 }
 
 @Override
@@ -138,7 +189,7 @@ public void remove(FlowerSummary item) {
         statement = conn.createStatement();
         
         
-        String remove = "DELETE FROM FlowerSpummary WHERE id = " + item.getId()  +";" ;
+        String remove = "DELETE FROM FlowerSummary WHERE id = " + item.getId()  +";" ;
         PreparedStatement preparedStatement = conn.prepareStatement(remove);
         
         preparedStatement.executeUpdate();
@@ -156,4 +207,6 @@ public void remove(FlowerSummary item) {
     }
 
 }
+
 }
+
